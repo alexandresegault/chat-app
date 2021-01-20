@@ -1,16 +1,16 @@
 import React from "react";
 import "./Contact.css";
-const name = "Connor Crawford";
-const avatar = "https://randomuser.me/api/portraits/men/27.jpg";
-const Contact = () => {
+
+const Contact = props => {
   return (
     <div className="Contact">
-      <img className="avatar" src={avatar} alt="avatar" />
+      <img className="avatar" src={props.avatar} alt={props.name} />
       <div>
-        <p className="name">{name}</p>
-        <p className="status">
-          <span className="status-online"></span>online
-        </p>
+        <p className="name">{props.name}</p>
+        <div className="status">
+          <div className={props.online ? "status-online" : "status-offline"} />
+          <p className="status-text"> {props.online ? "online" : "offline"}</p>
+        </div>
       </div>
     </div>
   );
